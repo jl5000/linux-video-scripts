@@ -4,8 +4,13 @@ Code to generate scripts for chopping up and pasting together MP4 files on linux
 
 The workflow is:
 
-1. Place the two generate_scripts files in the same directory as the video;
+1. Place the bash and R scripts in the same directory as the video;
 2. Create a text file called 'times.txt' where the first line is the filename of the video (with extension) and subsequent lines describe segments you want to keep (e.g. 1:01-3:04) 
 3. In the bash terminal: 'bash generate_scripts.sh'. This creates 'cut_script.sh' and 'merge_script.sh'; 
-4. In the bash terminal: 'bash cut_script.sh'. This generates numbered MP4 files.
-5. In the bash terminal: 'bash merge_script.sh'. This joins them all together to create 'merged.mp4'.
+4. In the bash terminal: 'bash cut_script.sh'. This generates numbered MP4 files;
+5. Check the numbered mp4 files to ensure they are not longer than needed - sometimes they start from an earlier keyframe;
+6. If there are any that need to be trimmed further at the start, open the 'cut_script.sh' and remove the one which are ok;
+7. In the bash terminal: 'bash cut_script2.sh'. This trims files further;
+8. In the bash terminal: 'bash merge_script.sh'. This joins them all together to create 'merged.mp4'.
+
+The `ffmpeg/` folder contains the same scripts, but using `ffmpeg` instead of VLC/MP4Box.

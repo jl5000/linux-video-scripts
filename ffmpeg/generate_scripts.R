@@ -24,16 +24,8 @@ full <-
     end = 60 * 60 * end_hr + 60 * end_min + end_sec
   ) %>%
   mutate(
-    script1 = str_c("vlc",
-                    video,
-                    "--start-time",
-                    start,
-                    "--stop-time",
-                    end,
-                    sep = " "),
-    script2 = str_c(":sout=#file{dst=", row_number(), ".mp4}"),
-    script3 = ":no-sout-rtp-sap :no-sout-standard-sap :sout-keep",
-    script = str_c(script1, script2, script3, sep = " ")
+    script = sprintf('ffmpeg -ss %s -to %s -i %s -c copy "%s.mp4"',
+                     start, end, video, row_number())
   )
 
 #calculate total length of cut video 
@@ -53,12 +45,9 @@ full %>% select(script) %>%
 
 # GENERATE PASTE SCRIPT ---------------------------------------------------
 
-merge_script <- "MP4Box"
-
-for(i in 1:nrow(full)) {
-  merge_script <- str_c(merge_script, " -cat ", i, ".mp4")
-}
-
-str_c(merge_script, "merged.mp4", sep = " ") %>% write("merge_script.sh")
+temp <- sprintf("file '%s.mp4'", seq_len(nrow(full)))
+writeLines(temp, "files_to_merge.txt")
+merge_script <- "ffmpeg -f concat -safe 0 -i files_to_merge.txt -c copy merged.mp4"
+write(merge_script, "merge_script.sh")
 
 
