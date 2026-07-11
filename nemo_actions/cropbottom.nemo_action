@@ -1,0 +1,11 @@
+[Nemo Action]
+#Don't forget to make the bash script executable
+#chmod +x ~/.local/share/nemo/actions/cropbottom.sh
+Name=Cropbottom
+Comment=Crop a percentage from the bottom of selected MP4 videos
+Icon-Name=video-x-generic
+Exec=<cropbottom.sh %F>
+Selection=notnone
+Extensions=mp4;
+Quote=double
+Dependencies=ffmpeg;zenity

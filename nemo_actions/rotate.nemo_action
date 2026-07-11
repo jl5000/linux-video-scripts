@@ -1,0 +1,9 @@
+[Nemo Action]
+Name=Rotate video
+Comment=Rotate selected MP4 files using exiftool
+Exec=<rotate.sh %F>
+Icon=video-x-generic
+Selection=notnone
+Extensions=mp4;
+Quote=double
+Dependencies=exiftool;

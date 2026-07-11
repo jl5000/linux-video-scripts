@@ -1,0 +1,10 @@
+[Nemo Action]
+#Put this file in home/.local/share/nemo/actions
+#Ctrl + H to show hidden files/folders (including .local)
+Name=Slideshow
+Comment=Show slideshow
+Quote=double
+#delay 2 secs, recursive, randomise, fullscreen, hide cursor, autozoom
+Exec=feh -D3 -r -z -F -Y -Z %P
+Selection=any
+Extensions=any;

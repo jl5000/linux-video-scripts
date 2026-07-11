@@ -1,0 +1,11 @@
+[Nemo Action]
+#Don't forget to make the bash script executable
+#chmod +x ~/.local/share/nemo/actions/croptop.sh
+Name=Croptop
+Comment=Crop a percentage from the top of selected MP4 videos
+Icon-Name=video-x-generic
+Exec=<croptop.sh %F>
+Selection=notnone
+Extensions=mp4;
+Quote=double
+Dependencies=ffmpeg;zenity

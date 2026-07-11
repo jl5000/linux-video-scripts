@@ -1,0 +1,10 @@
+[Nemo Action]
+#Put this file in home/.local/share/nemo/actions
+#Ctrl + H to show hidden files/folders (including .local)
+Name=Duplicates
+Comment=Find duplicates
+Quote=double
+Exec=fdupes -r -d %P
+Selection=any
+Extensions=any;
+Terminal=true

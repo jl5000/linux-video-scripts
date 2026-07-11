@@ -1,0 +1,8 @@
+[Nemo Action]
+Name=Take Screenshots
+Comment=Take N equally spaced screenshots with a Zenity prompt
+Exec=<screenshots.sh %F>
+Icon=camera-photo
+Selection=notnone
+Extensions=any;
+
