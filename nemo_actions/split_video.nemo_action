@@ -1,0 +1,9 @@
+[Nemo Action]
+Name=Crop Video
+Comment=Create video parts based on times.txt using ffmpeg
+Exec=<split_video.sh %P>
+Icon=video-x-generic
+Selection=any
+Extensions=mp4;
+Quote=double
+
