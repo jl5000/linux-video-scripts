@@ -1,0 +1,8 @@
+[Nemo Action]
+Active=true
+Name=Create times.txt
+Comment=Create times.txt with vid.mp4 and 0:00-0:10 in the current directory
+Exec=sh -c 'printf "vid.mp4\n0:00-0:10\n" > "%P/times.txt"'
+Selection=none
+Extensions=any;
+Icon-Name=document-new
